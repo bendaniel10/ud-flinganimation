@@ -4,27 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/root">
 
     <LinearLayout
         android:id="@+id/playground"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#4CAF50"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.513">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/image1"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_margin="8dp"
+            android:layout_weight="1"
             android:src="@drawable/basketball" />
 
         <ImageView
@@ -32,6 +33,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_margin="8dp"
+            android:layout_weight="1"
             android:src="@drawable/basketball"
 
             />
@@ -42,21 +44,11 @@
             android:layout_height="70dp"
             android:layout_margin="8dp"
             android:src="@drawable/basketball"
+            android:layout_weight="1"
 
             />
 
 
     </LinearLayout>
 
-    <Button
-        android:layout_margin="8dp"
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Run"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="initFling"
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>
