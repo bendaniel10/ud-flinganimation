@@ -27,11 +27,20 @@ public class CustomGestureListener extends GestureDetector.SimpleOnGestureListen
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         FlingAnimation fling = new FlingAnimation(mAnimatedView, DynamicAnimation.Y);
+        if(Math.abs(velocityX) > Math.abs(velocityY)){
+            fling = new FlingAnimation(mAnimatedView, DynamicAnimation.X);
+            fling.setStartVelocity(velocityX);
+            fling.setMaxValue(mMax / 2);
+        }
+        else {
+            fling = new FlingAnimation(mAnimatedView, DynamicAnimation.Y);
+            fling.setStartVelocity(velocityY);
+            fling.setMaxValue(mMax);
+        }
         fling.setMinValue(mMin);
-        fling.setMaxValue(mMax);
-        fling.setStartVelocity(velocityY);
 
         fling.start();
         return super.onFling(e1, e2, velocityX, velocityY);
+
     }
 }
